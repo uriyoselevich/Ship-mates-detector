@@ -7,7 +7,8 @@
 
         <!--logo -->
         <div class=navbar-header">
-            <a class="navbar-brand" href="{% url 'ship:index' %}">big-brother</a>
+            <a class="navbar-brand" href="{% url 'ship:index' %}">ship</a>
+{#            <a class="navbar-brand" href="{% url 'ship:records' %}">records</a>#}
 
         </div>
     </div>
@@ -15,7 +16,7 @@
 </nav>
 {% if all_departments %}
 
-    <h3>Here are the ship departments</h3>
+    <h1>Here are the ship departments</h1>
     <ul>
         {% for department in all_departments %}
         <li><a href="{% url 'ship:detail' department.id %}">{{ department.department_name }}</a></li>
@@ -23,4 +24,16 @@
     </ul>
 {% else %}
 <h3>no departments in database</h3>
+{% endif %}
+
+{% if all_records %}
+
+    <h1>Here are all the ship records</h1>
+    <ul>
+        {% for singlerecord in all_records %}
+        <li>{{ singlerecord.tag_string}}, {{singlerecord.time_stamp}}, {{singlerecord.compartment }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+<h3>no records in database</h3>
 {% endif %}

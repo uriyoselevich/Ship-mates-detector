@@ -12,4 +12,7 @@ urlpatterns = [
 
     # /ship/<department.id>/
     url(r'^(?P<department_id>[0-9]+)/baknaz_team/$', views.baknaz_team, name='baknaz_team'),
+
+    # /ship/
+    # url(r'^$', views.records, name='records'),
 ]
